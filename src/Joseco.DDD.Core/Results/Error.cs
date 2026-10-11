@@ -21,9 +21,11 @@ public record Error
         Description = BuildMessage(structuredMessage, args);
         Code = code;
         Type = type;
+        //var e = new Error("Transaccion.InvalidItems", "The transaction {ID} cannot be empty", ErrorType.Validation, new Guid())
     }
 
-    private string BuildMessage(string structuredMessage, params object[]? args)
+
+    private static string BuildMessage(string structuredMessage, params object[]? args)
     {
         if (args == null || args.Length == 0)
         {
